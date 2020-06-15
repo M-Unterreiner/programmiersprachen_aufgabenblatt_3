@@ -15,6 +15,9 @@ template <typename T>
 ListNode<T>* get_last_pointer(List<T> const& list_to_test) {return list_to_test.last_;}
 
 
+//my tests
+#include "sub_tests/my.test"
+
 //test case definitions for default constructor of list as well as empty and size for empty list
 #include "sub_tests/default_constructed_list.test"
 
