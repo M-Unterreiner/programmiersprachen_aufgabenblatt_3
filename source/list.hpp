@@ -135,6 +135,19 @@ class List {
       last_{nullptr},
     {}
 
+
+    bool empty() const
+    {
+      if(size() == 0)
+      {
+        return true;
+      }
+      else 
+      {
+        return false;
+      }
+    }
+
     // test and implement:
     //TODO: Copy-Konstruktor using Deep-Copy semantics (Aufgabe 3.5)
 
