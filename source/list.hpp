@@ -207,7 +207,7 @@ class List {
       if (!empty())
       {
         first_ -> prev = node;
-        node -> next = first;
+        node -> next = first_;
       } 
       else 
       {
@@ -220,7 +220,19 @@ class List {
 
     /* ... */
     void push_back(T const& element) {
+      ListNode <T>* node = new ListNode <T> {element, nullptr, nullptr};
       // TODO: push_back-method (Aufgabe 3.3)
+      if (!empty()){
+        last_ -> next = node;
+        node  -> next = last_;
+      }
+      else 
+      {
+        first_ = node;
+      }
+
+      last_ = node;
+      ++size_;
     }
 
     /* ... */
