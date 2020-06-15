@@ -126,7 +126,6 @@ class List {
     using const_reference = T const&;
     using iterator        = ListIterator<T>;
 
-    // not fully implemented yet
     // TODO: do not forget about the initialiser list! (Aufgabe 3.2)
     /* ... */
     List(): 
@@ -204,6 +203,19 @@ class List {
     /* ... */
     void push_front(T const& element) {
       // TODO: push_front-method (Aufgabe 3.3)
+      ListNode <T>* node = new ListNode <T> {element, nullptr, nullptr};
+      if (!empty())
+      {
+        first_ -> prev = node;
+        node -> next = first;
+      } 
+      else 
+      {
+        last_ = node;
+      }
+
+      first_ = node;
+      ++size_;
     }
 
     /* ... */
