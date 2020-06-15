@@ -1,0 +1,14 @@
+TEST_CASE("Default constructor", "[Default constructor]") {
+List<int> list{};
+
+  SECTION("Testing size"){
+    REQUIRE( 0 == list.size());
+  }
+
+  SECTION("Testing empty"){
+    REQUIRE (true == list.empty());
+  }
+
+
+}
+  
