@@ -135,6 +135,10 @@ class List {
       last_{nullptr},
     {}
 
+    std::size_t size() const{
+      return size_;
+    }
+
 
     bool empty() const
     {
