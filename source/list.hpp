@@ -206,6 +206,7 @@ class List {
       ListNode <T>* node = new ListNode <T> {element, nullptr, nullptr};
       if (!empty())
       {
+        // 
         first_ -> prev = node;
         node -> next = first_;
       } 
@@ -224,7 +225,7 @@ class List {
       // TODO: push_back-method (Aufgabe 3.3)
       if (!empty()){
         last_ -> next = node;
-        node  -> next = last_;
+        node  -> prev = last_;
       }
       else 
       {
@@ -237,20 +238,44 @@ class List {
 
     /* ... */
     void pop_front() {
+      // TODO delete hinzufügen
       if(empty()) {
         throw "List is empty";
+      } 
+      else
+      {
+        if(size() == 1)
+        {
+          first_ = last_ = nullptr;
+          --size_;
+        } 
+        else if(size() > 1) 
+        {
+          first_ = (*first_).next;
+          --size_;
+        }
       }
-
       // TODO: remainder of pop_front-method (Aufgabe 3.3)
     }
 
     /* ... */
     void pop_back() {
+      // TODO delete hinzufügen
       if(empty()) {
         throw "List is empty";
+      } else 
+        { 
+          if (size() == 1)
+            {
+             first_ = last_ = nullptr;
+             --size_; 
+            } 
+            else if(size() > 1) 
+            {
+              last_ = (*last_).prev;  
+              --size_;
+            } 
       }
-
-      // TODO: remainder of pop_back-method (Aufgabe 3.3)
     }
 
     /* ... */
