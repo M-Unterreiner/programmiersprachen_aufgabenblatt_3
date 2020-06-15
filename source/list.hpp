@@ -129,7 +129,11 @@ class List {
     // not fully implemented yet
     // TODO: do not forget about the initialiser list! (Aufgabe 3.2)
     /* ... */
-    List() {}
+    List(): 
+      size_{0},
+      first_{nullptr},
+      last_{nullptr},
+    {}
 
     // test and implement:
     //TODO: Copy-Konstruktor using Deep-Copy semantics (Aufgabe 3.5)
