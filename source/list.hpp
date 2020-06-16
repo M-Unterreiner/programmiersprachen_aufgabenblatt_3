@@ -187,7 +187,20 @@ class List {
     /* ... */ 
     // test and implement:
     //TODO: clear()-Method (Aufgabe 3.4)
+    void clear(){
+      if(empty())
+      {
+        throw "List is already empty";
+      } 
+      else
+      {
+        while ((*first_).next != nullptr)
+        {
+          pop_front();
+        }
+      }
 
+    }
 
     /* ... */
     //TODO: member function insert (Aufgabe 3.13)
