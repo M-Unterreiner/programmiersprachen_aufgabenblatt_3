@@ -265,6 +265,7 @@ class List {
         else if(size() > 1) 
         {
           first_ = (*first_).next;
+          (*first_).prev = nullptr;
           --size_;
         }
       }
@@ -285,7 +286,8 @@ class List {
             } 
             else if(size() > 1) 
             {
-              last_ = (*last_).prev;  
+              last_ = (*last_).prev;
+              (*last_).next = nullptr;  
               --size_;
             } 
       }
