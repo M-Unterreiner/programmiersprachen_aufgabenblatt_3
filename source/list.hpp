@@ -29,6 +29,9 @@ struct ListIterator {
   using difference_type   = ptrdiff_t;
   using iterator_category = std::bidirectional_iterator_tag;
 
+  ListIterator(ListNode<T>* node):
+  node{node}
+  {}
 
   /* DESCRIPTION  operator*() */
   T&  operator*()  const {
@@ -157,12 +160,44 @@ class List {
     bool operator==(List const& rhs) const
     {
       //TODO: operator== (Aufgabe 3.8)
+      if (size_ == rhs.size_)
+      {
+        auto rhs_node = rhs.first_;
+        auto node     = first_;
+        
+        while(node.next != nullptr)
+        {
+          if (rhs_node.value == node.value)
+          {
+            rhs_node  = rhs_node.next;
+            node.next = node.next;    
+          } 
+          else
+          {
+           return false;
+          }
+        }
+      } 
+      else
+      {
+        return false;
+      }
+      
     }
 
     bool operator!=(List const& rhs) const
     {
       //TODO: operator!= (Aufgabe 3.8)
       // make use of operator==
+      if (this == rhs)
+      {
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+      
     }
 
     /* ... */
@@ -172,14 +207,16 @@ class List {
     } //can not really be tested
 
     /* ... */
-    ListIterator<T> begin() {
+    ListIterator<T> begin() const
+    {
       //TODO: begin-Method returning an Iterator to the 
       //      first element in the List (Aufgabe 3.11)
       return ListIterator<T>(first_);
     }
 
     /* ... */
-    ListIterator<T> end() {
+    ListIterator<T> end() const
+    {
       //TODO: end-Method returning an Iterator to element after (!) 
       //      the last element in the List (Aufgabe 3.11)
       return ListIterator<T>(last_);
