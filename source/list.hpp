@@ -168,7 +168,7 @@ class List {
     /* ... */
     ~List() {
       //TODO: Implement via clear-Method (Aufgabe 3.4)
-      clear();
+      // clear();
     } //can not really be tested
 
     /* ... */
@@ -212,17 +212,26 @@ class List {
     /* ... */
 
     //TODO: member function reverse (Aufgabe 3.7 - Teil 1)
+    // Question: auto oder explizite Liste initialisieren?
     void reverse()
     {
-      ListNode<T>* node = first_;
-      ListNode<T>* temp = nullptr;
+      // auto node = first_;
+      // auto tmp_node = nullptr;
+      ListNode<T>* node     = first_;
+      ListNode<T>* tmp_node = nullptr;
 
       while(node != nullptr){
-        throw ("Not implemented");
+       tmp_node = node -> next;
+       node -> next = node -> prev;
+       node -> rpev = tmp_node;
+
+       if (tmp_node == nullptr)
+       {
+         last_  = first_;
+         first_ = node;
+       } 
+      node = tmp_node;
       }
-
-
-
     }
 
 
