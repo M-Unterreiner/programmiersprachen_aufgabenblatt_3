@@ -361,6 +361,12 @@ class List {
 /* ... */
 //TODO: Freie Funktion reverse 
 //(Aufgabe 3.7 - Teil 2, benutzt Member-Funktion reverse)
+template <typename T> List<T> reverse (List<T> const& list)
+{
+  List<T> rev_list(list);
+  rev_list.reverse();
+  return rev_list;
+}
 
 /* ... */
 //TODO: Freie Funktion operator+ (3.10 - Teil 2)
