@@ -212,6 +212,18 @@ class List {
     /* ... */
 
     //TODO: member function reverse (Aufgabe 3.7 - Teil 1)
+    void reverse()
+    {
+      ListNode<T>* node = first_;
+      ListNode<T>* temp = nullptr;
+
+      while(node != nullptr){
+        throw ("Not implemented");
+      }
+
+
+
+    }
 
 
     /* ... */
