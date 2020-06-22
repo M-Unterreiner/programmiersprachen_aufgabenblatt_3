@@ -174,6 +174,11 @@ class List {
     /* ... */
     // test and implement:
     //TODO: (unifying) Assignment operator (Aufgabe 3.6)
+    List& operator=(List rhs)
+      { 
+        (rhs);
+        return *this;
+      }
 
     /* ... */
     // test and implement:
@@ -253,6 +258,7 @@ class List {
       } 
       else
       {
+        // (*first_).next.next != nullptr ??
         while ((*first_).next != nullptr)
         {
           pop_front();
@@ -341,12 +347,15 @@ class List {
         {
           first_ = last_ = nullptr;
           --size_;
+          //  Ist sowas sinnvoll? 
+          // delete this;
         } 
         else if(size() > 1) 
         {
           first_ = (*first_).next;
           (*first_).prev = nullptr;
           --size_;
+          // delete this;
         }
       }
       // TODO: remainder of pop_front-method (Aufgabe 3.3)
@@ -363,12 +372,14 @@ class List {
             {
              first_ = last_ = nullptr;
              --size_; 
+              // delete this;
             } 
             else if(size() > 1) 
             {
               last_ = (*last_).prev;
               (*last_).next = nullptr;  
               --size_;
+              // delete this;
             } 
       }
     }
@@ -395,7 +406,8 @@ class List {
     bool empty() const {
 
       // TODO: empty-method (Aufgabe 3.2)
-      if (size_ == 0){
+      if (size_ == 0)
+      {
         return true;
       } else {
         return false;
@@ -406,7 +418,7 @@ class List {
     std::size_t size() const{
       // TODO: size-method (Aufgabe 3.2)      
       return size_;
-  };
+    };
 
 
   // list members
@@ -414,7 +426,7 @@ class List {
     std::size_t size_;
     ListNode<T>* first_;
     ListNode<T>* last_;
-};
+  };
 
 /* ... */
 //TODO: Freie Funktion reverse 
