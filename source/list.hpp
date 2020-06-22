@@ -153,6 +153,17 @@ class List {
       }
     }
 
+
+  List(List<T>&& list):
+     size_(list.size()),
+     first_(list.first_),
+     last_(list.last_)
+   {
+     list.size = 0;
+     list.first_ = nullptr;
+     list.last_ = nullptr;
+   }
+
     //TODO: Initializer-List Konstruktor (3.10 - Teil 1)
     /* ... */
     // test and implement:
