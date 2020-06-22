@@ -140,8 +140,18 @@ class List {
     // test and implement:
     //TODO: Copy-Konstruktor using Deep-Copy semantics (Aufgabe 3.5)
 
-    // test and implement:
-    // TODO: Move-Konstruktor (Aufgabe 3.9)
+    List(List <T> const& list):
+    size_{0},
+    first_{nullptr},
+    last_{nullptr}
+    {
+      auto tmp_node= list.first_;
+
+      while (tmp_node->next != nullptr){
+        push_back(tmp_node);
+        tmp_node = tmp_node->next;
+      }
+    }
 
     //TODO: Initializer-List Konstruktor (3.10 - Teil 1)
     /* ... */
